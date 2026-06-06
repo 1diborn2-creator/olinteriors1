@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>olinteriors</title>
+    <meta
+      name="description"
+      content="Минималистичный сайт-портфолио интерьерных проектов с переключением EN / RU / ES."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+      <div class="page-shell">
+        <div class="ambient ambient-a" aria-hidden="true"></div>
+        <div class="ambient ambient-b" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="olinteriors">
+          <span class="brand-mark">ol</span>
+          <span class="brand-text">olinteriors</span>
+        </a>
+
+        <nav class="topnav" aria-label="Main">
+          <a href="#about" data-i18n="navAbout">О нас</a>
+          <a href="#works" data-i18n="navWorks">Работы</a>
+          <a href="#approach" data-i18n="navApproach">Подход</a>
+          <a href="#experiences" data-i18n="navExperiences">Отзывы</a>
+          <a href="#contact" data-i18n="navContact">Контакт</a>
+        </nav>
+
+        <div class="lang-switch" role="tablist" aria-label="Language switch">
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="ru">RU</button>
+          <button class="lang-btn" type="button" data-lang="es">ES</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero section" id="home">
+          <div class="hero-copy reveal">
+            <p class="eyebrow" data-i18n="heroEyebrow">Interior design portfolio</p>
+            <h1 data-i18n="heroTitle">
+              Минималистичный портфель интерьерных историй, где свет, фактура и
+              тишина работают как единая композиция.
+            </h1>
+            <p class="hero-text" data-i18n="heroText">
+              Основа сайта — шесть отобранных проектов с Behance. Я собрал их в
+              спокойную редакционную подачу, чтобы визуалы звучали мягко, чисто и
+              уверенно.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#works" data-i18n="heroCtaPrimary">
+                Смотреть проекты
+              </a>
+              <a class="button button-secondary" href="#contact" data-i18n="heroCtaSecondary">
+                Обсудить сайт
+              </a>
+            </div>
+
+            <dl class="stats">
+              <div>
+                <dt data-i18n="statProjectsLabel">Проекты</dt>
+                <dd>6</dd>
+              </div>
+              <div>
+                <dt data-i18n="statStyleLabel">Стиль</dt>
+                <dd data-i18n="statStyleValue">Минимализм + warm luxury</dd>
+              </div>
+              <div>
+                <dt data-i18n="statLocationLabel">Локация</dt>
+                <dd data-i18n="statLocationValue">Barcelona</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="hero-card hero-card-main">
+              <div class="hero-card-top">
+                <span class="mono">01</span>
+                <span data-i18n="heroVisualLabel">Selected works</span>
+              </div>
+              <div class="hero-card-body">
+                <p class="hero-card-title">olinteriors</p>
+                <p class="hero-card-copy" data-i18n="heroVisualCopy">
+                  Тихая, теплая, архитектурная эстетика без лишнего шума.
+                </p>
+              </div>
+            </div>
+
+            <div class="hero-card hero-card-secondary tone-1">
+              <span class="project-label" data-i18n="heroMiniOneLabel">Bathroom</span>
+              <span class="project-small" data-i18n="heroMiniOneCopy">Modern / clean / calm</span>
+            </div>
+
+            <div class="hero-card hero-card-secondary tone-2">
+              <span class="project-label" data-i18n="heroMiniTwoLabel">Bedroom</span>
+              <span class="project-small" data-i18n="heroMiniTwoCopy">Warm / soft / tactile</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section intro-strip reveal">
+          <p data-i18n="introText">
+            Этот макет сделан как минималистичный portfolio site: акцент на
+            премиальной подаче проектов, спокойной типографике и удобном
+            переключении языка.
+          </p>
+        </section>
+
+        <section class="section spotlight" id="spotlight">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="spotlightEyebrow">Last project</p>
+            <h2 data-i18n="spotlightTitle">Featured project</h2>
+          </div>
+
+          <div class="spotlight-card reveal" id="spotlightCard"></div>
+        </section>
+
+        <section class="section" id="works">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="worksEyebrow">Behance selection</p>
+            <h2 data-i18n="worksTitle">Выбранные проекты</h2>
+          </div>
+
+          <div class="projects-grid" id="projectsGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="section about" id="about">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="aboutEyebrow">About Us</p>
+            <h2 data-i18n="aboutTitle">Мы создаём интерьеры, в которых хочется жить</h2>
+          </div>
+
+          <div class="story-grid">
+            <article class="story-card reveal">
+              <p data-i18n="aboutText1">
+                At olinteriors, we create thoughtful interiors that reflect the personality,
+                lifestyle, and aspirations of the people who live in them.
+              </p>
+            </article>
+            <article class="story-card reveal">
+              <p data-i18n="aboutText2">
+                We believe that great design goes beyond aesthetics. Every project begins with
+                understanding our clients — how they live, what inspires them, and what they need
+                from their space.
+              </p>
+            </article>
+            <article class="story-card reveal">
+              <p data-i18n="aboutText3">
+                By combining creativity, functionality, and attention to detail, we transform
+                homes into places that feel authentic, comfortable, and timeless.
+              </p>
+            </article>
+            <article class="story-card reveal">
+              <p data-i18n="aboutText4">
+                Based in Spain and working with clients from different backgrounds and cultures,
+                we bring a personalized approach to every project, creating interiors that are
+                elegant, practical, and deeply connected to those who inhabit them.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section approach" id="approach">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="approachEyebrow">Our Approach</p>
+            <h2 data-i18n="approachTitle">Каждый проект начинается со слушания</h2>
+          </div>
+
+          <div class="approach-grid approach-grid--large">
+            <article class="approach-card reveal">
+              <span class="card-index">01</span>
+              <h3 data-i18n="approachOneTitle">Сначала слушаем</h3>
+              <p data-i18n="approachOneText">
+                Every successful interior starts with listening.
+              </p>
+            </article>
+
+            <article class="approach-card reveal">
+              <span class="card-index">02</span>
+              <h3 data-i18n="approachTwoTitle">Решения с целью</h3>
+              <p data-i18n="approachTwoText">
+                We take the time to understand your vision, lifestyle, and goals before
+                developing a design concept tailored specifically to you.
+              </p>
+            </article>
+
+            <article class="approach-card reveal">
+              <span class="card-index">03</span>
+              <h3 data-i18n="approachThreeTitle">Вместе на каждом этапе</h3>
+              <p data-i18n="approachThreeText">
+                Our process is collaborative, transparent, and detail-oriented. We guide our
+                clients through every stage of the project, ensuring a smooth experience.
+              </p>
+            </article>
+
+            <article class="approach-card reveal">
+              <span class="card-index">04</span>
+              <h3 data-i18n="approachFourTitle">Баланс красоты и пользы</h3>
+              <p data-i18n="approachFourText">
+                The outcome is more than a well-designed interior — it is a space that feels
+                natural, inspiring, and uniquely yours.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section experiences" id="experiences">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="experiencesEyebrow">Client Experiences</p>
+            <h2 data-i18n="experiencesTitle">Что говорят клиенты</h2>
+          </div>
+
+          <div class="quotes-grid">
+            <figure class="quote-card reveal">
+              <blockquote data-i18n="testimonial1">
+                "Working with olinteriors was an exceptional experience. Every detail was carefully considered, and the final result exceeded our expectations."
+              </blockquote>
+            </figure>
+
+            <figure class="quote-card reveal">
+              <blockquote data-i18n="testimonial2">
+                "Olga understood exactly how we wanted our home to feel. The design is beautiful, functional, and perfectly suited to our lifestyle."
+              </blockquote>
+            </figure>
+
+            <figure class="quote-card reveal">
+              <blockquote data-i18n="testimonial3">
+                "Professional, creative, and incredibly attentive throughout the entire process. We felt supported from the first meeting to the final installation."
+              </blockquote>
+            </figure>
+
+            <figure class="quote-card reveal">
+              <blockquote data-i18n="testimonial4">
+                "The project was delivered with outstanding attention to detail and a clear understanding of our vision. We couldn't be happier with the result."
+              </blockquote>
+            </figure>
+          </div>
+        </section>
+
+        <section class="section contact" id="contact">
+          <div class="contact-panel reveal">
+            <div class="contact-copy">
+              <p class="eyebrow" data-i18n="contactEyebrow">Контакты</p>
+              <h2 data-i18n="contactTitle">olinteriors</h2>
+              <p class="contact-text" data-i18n="contactText">
+                Связь для проектов, консультаций и новых задач.
+              </p>
+            </div>
+
+            <ul class="contact-list" aria-label="Contact details">
+              <li class="contact-item">
+                <span class="contact-label" data-i18n="contactInstagramLabel">Instagram</span>
+                <a class="contact-link" href="https://www.instagram.com/olinteriors.es?igsh=MWRwNzR0ZmhhbnZ0" target="_blank" rel="noreferrer">
+                  @olinteriors.es
+                </a>
+              </li>
+              <li class="contact-item">
+                <span class="contact-label" data-i18n="contactWhatsAppLabel">WhatsApp</span>
+                <a class="contact-link" href="https://wa.me/34632197906" target="_blank" rel="noreferrer">
+                  +34 632 19 79 06
+                </a>
+              </li>
+              <li class="contact-item">
+                <span class="contact-label" data-i18n="contactEmailLabel">Email</span>
+                <a class="contact-link" href="mailto:tsybao19@gmail.com">
+                  tsybao19@gmail.com
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+    </main>
+  </div>
+
+  <div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="project-modal__backdrop" data-close-project></div>
+    <section
+      class="project-modal__panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="projectModalTitle"
+    >
+      <button class="project-modal__close" type="button" data-close-project aria-label="Close project">
+        ×
+      </button>
+      <div class="project-modal__content" id="projectModalContent"></div>
+    </section>
+  </div>
+
+  <div class="image-viewer" id="imageViewer" aria-hidden="true">
+    <div class="image-viewer__backdrop" data-close-image-viewer></div>
+    <section
+      class="image-viewer__panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="imageViewerTitle"
+    >
+      <button class="image-viewer__close" type="button" data-close-image-viewer aria-label="Close image">
+        ×
+      </button>
+      <button class="image-viewer__nav image-viewer__nav--prev" type="button" data-image-prev aria-label="Previous image">
+        ‹
+      </button>
+      <button class="image-viewer__nav image-viewer__nav--next" type="button" data-image-next aria-label="Next image">
+        ›
+      </button>
+      <div class="image-viewer__content">
+        <img id="imageViewerImage" alt="" />
+        <div class="image-viewer__meta">
+          <div>
+            <div class="image-viewer__label" id="imageViewerTitle">Image viewer</div>
+            <div class="image-viewer__counter" id="imageViewerCounter"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
