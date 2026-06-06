@@ -508,7 +508,7 @@ const i18n = {
     worksEyebrow: "Behance selection",
     worksTitle: "Selected projects",
     approachEyebrow: "Visual direction",
-    approachTitle: "How the site reads",
+    approachTitle: "Working styles",
     approachOneTitle: "Calm rhythm",
     approachOneText:
       "Lots of breathing room, generous spacing, card rhythm, and a very soft visual hierarchy.",
@@ -542,7 +542,7 @@ const i18n = {
     aboutText4:
       "Работая из Испании с клиентами из разных стран и культур, мы подходим к каждому проекту персонально и создаём интерьеры, которые одновременно элегантны, практичны и глубоко связаны с теми, кто в них живет.",
     approachEyebrow: "Наш подход",
-    approachTitle: "Каждый успешный интерьер начинается со слушания",
+    approachTitle: "Стили работы",
     approachOneTitle: "Сначала слушаем",
     approachOneText: "Every successful interior starts with listening.",
     approachTwoTitle: "Решения с целью",
@@ -590,7 +590,7 @@ const i18n = {
     worksEyebrow: "Выбор Behance",
     worksTitle: "Выбранные проекты",
     approachEyebrow: "Визуальное направление",
-    approachTitle: "Как читается этот сайт",
+    approachTitle: "Стили работы",
     approachOneTitle: "Спокойный ритм",
     approachOneText:
       "Много воздуха, крупные поля, ритм карточек и очень мягкая визуальная иерархия.",
@@ -624,7 +624,7 @@ const i18n = {
     aboutText4:
       "Con sede en España y trabajando con clientes de distintos orígenes y culturas, aportamos un enfoque personalizado a cada proyecto, creando interiores elegantes, prácticos y profundamente conectados con quienes los habitan.",
     approachEyebrow: "Our Approach",
-    approachTitle: "Todo interior exitoso comienza escuchando",
+    approachTitle: "Estilos de trabajo",
     approachOneTitle: "Empezamos escuchando",
     approachOneText: "Every successful interior starts with listening.",
     approachTwoTitle: "Decisiones con propósito",
@@ -672,7 +672,7 @@ const i18n = {
     worksEyebrow: "Selección de Behance",
     worksTitle: "Proyectos elegidos",
     approachEyebrow: "Dirección visual",
-    approachTitle: "Cómo se percibe este sitio",
+    approachTitle: "Estilos de trabajo",
     approachOneTitle: "Ritmo tranquilo",
     approachOneText:
       "Mucho aire, márgenes amplios, ritmo de tarjetas y una jerarquía visual muy suave.",
@@ -704,6 +704,7 @@ const closeProjectButtons = Array.from(document.querySelectorAll("[data-close-pr
 const closeImageViewerButtons = Array.from(document.querySelectorAll("[data-close-image-viewer]"));
 const prevImageButtons = Array.from(document.querySelectorAll("[data-image-prev]"));
 const nextImageButtons = Array.from(document.querySelectorAll("[data-image-next]"));
+const backToTopButton = document.querySelector(".back-to-top");
 let activeProjectKey = null;
 let activeGalleryIndex = 0;
 
@@ -863,6 +864,13 @@ function stepImage(delta) {
   renderImageViewer(document.documentElement.lang);
 }
 
+function updateBackToTopVisibility() {
+  if (!backToTopButton) return;
+  const shouldShow = window.scrollY > 420;
+  backToTopButton.classList.toggle("is-visible", shouldShow);
+  backToTopButton.setAttribute("aria-hidden", String(!shouldShow));
+}
+
 function setLanguage(locale) {
   const dict = i18n[locale] ?? i18n.en;
 
@@ -941,6 +949,18 @@ prevImageButtons.forEach((button) => {
 nextImageButtons.forEach((button) => {
   button.addEventListener("click", () => stepImage(1));
 });
+
+if (backToTopButton) {
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
+
+window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+updateBackToTopVisibility();
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft" && imageViewer.getAttribute("aria-hidden") === "false") {
